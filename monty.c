@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
+		{"pop", _pop},
+		{"swap", _swap},
 		{NULL, NULL}
 	};
 	if (argc != 2)
