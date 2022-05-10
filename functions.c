@@ -88,7 +88,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L<%d>: can't pop an empty stack", line_number);
+		fprintf(stderr, "L<%d>: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)
@@ -103,3 +103,25 @@ void _pop(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = NULL;
 	}
 }
+
+/**
+ * _swap - swaps the top two elements of the stack
+ * @stack: First element (head)
+ * @line_number: is the line number where the instruction appears
+ */
+void _swap(stack_t **stack, unsigned int line_number)
+{
+	if ((*stack)->next == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L<%d>: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		(*stack)->prev = (*stack)->next;
+		(*stack)->next->prev = NULL;
+		(*stack)->next = *stack;
+		*stack = (*stack)->next;
+	}
+}
+
