@@ -17,15 +17,16 @@ int get_op(FILE *file, instruction_t op[])
 	{
 		if (getline(&str, &buffer, file) == -1)
 		{
-			free(str); /* Se libera por el malloc del getline */
+			free(str);
 			break;
 		}
 		line_number++;
 		token = strtok(str, "\t\n ");
-		count = 0;
-		flag = 0;
+		count = 0, flag = 0;
 		if (token)
 		{
+			if (token[0] == '#')
+				continue;
 			while (op[count].opcode != NULL)
 			{
 				if (strcmp(token, op[count].opcode) == 0)
@@ -38,8 +39,7 @@ int get_op(FILE *file, instruction_t op[])
 			if (flag == 0)
 			{
 				fprintf(stderr, "L<%d>: unknown instruction <%s>", line_number, token);
-				free_dlistint(stack);
-				free(str);
+				free_dlistint(stack), free(str);
 				fclose(file);
 				exit(EXIT_FAILURE);
 			}
