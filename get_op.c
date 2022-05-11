@@ -38,7 +38,7 @@ int get_op(FILE *file, instruction_t op[])
 			}
 			if (flag == 0)
 			{
-				fprintf(stderr, "L<%d>: unknown instruction <%s>", line_number, token);
+				fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
 				free_dlistint(stack), free(str);
 				fclose(file);
 				exit(EXIT_FAILURE);

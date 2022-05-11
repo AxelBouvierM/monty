@@ -23,7 +23,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	str = strtok(NULL, "\t\n ");
 	if (str == NULL || is_digit(str) == -1)
 	{
-		fprintf(stderr, "L<%d>: unknown instruction <push>", line_number);
+		fprintf(stderr, "L%d: unknown instruction push\n", line_number);
 		free(tmp);
 		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
@@ -89,7 +89,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L<%d>: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)
@@ -116,7 +116,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 
 	if ((*stack)->next == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L<%d>: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	else
