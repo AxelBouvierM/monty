@@ -35,6 +35,12 @@ int is_digit(char *str)
 	return (0);
 }
 
+/**
+ * add_dnodeint - adds a new node at the beginning of a dlistint_t list
+ * @head: Pointer to first node
+ * @n: Elements of the list
+ * Return: the address of the new element, or NULL if it failed
+ */
 stack_t *add_dnodeint_end(stack_t **stack, int n)
 {
 	struct stack_s *new_node = malloc(sizeof(stack_t));
