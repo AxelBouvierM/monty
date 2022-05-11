@@ -36,8 +36,8 @@ int is_digit(char *str)
 }
 
 /**
- * add_dnodeint - adds a new node at the beginning of a dlistint_t list
- * @head: Pointer to first node
+ * add_dnodeint_end - adds a new node at the beginning of a dlistint_t list
+ * @stack: Pointer to first node
  * @n: Elements of the list
  * Return: the address of the new element, or NULL if it failed
  */
