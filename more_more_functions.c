@@ -42,3 +42,30 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	}
 	printf("%c\n", (*stack)->n);
 }
+
+/**
+ * _pstr -  prints the string starting at the top of the stack
+ * @stack: First element (head)
+ * @line_number: is the line number where the instruction appears
+ */
+void _pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+	(void)line_number;
+
+	if (*stack == NULL)
+	{
+		printf("\n");
+		return;
+	}
+	while (tmp != NULL)
+	{
+		if (tmp->n == 0)
+			break;
+		if (isascii(tmp->n) == 0)
+			break;
+		printf("%c", tmp->n);
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
