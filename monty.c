@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 		{"pchar", _pchar},
 		{"pstr", _pstr},
 		{"rotl", _rotl},
+		{"rotr", _rotr},
 		{NULL, NULL}
 	};
 	if (argc != 2)
