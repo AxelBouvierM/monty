@@ -87,3 +87,28 @@ void _rotl(stack_t **stack, unsigned int line_number)
 	}
 
 }
+
+/**
+ * _rotr - rotates the stack to the bottom
+ * @stack: First element (head)
+ * @line_number: is the line number where the instruction appears
+ */
+void _rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *aux = *stack, *tmp;
+	(void)line_number;
+
+	if (*stack != NULL)
+	{
+		while (aux->next)
+		{
+			aux = aux->next;
+		}
+		tmp = aux->prev;
+		aux->next = *stack;
+		aux->prev = NULL;
+		tmp->next = NULL;
+		(*stack)->prev = aux;
+		*stack = aux;
+	}
+}
