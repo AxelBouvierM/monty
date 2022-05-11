@@ -69,3 +69,21 @@ void _pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+
+/**
+ * _rotl - rotates the stack to the top
+ * @stack: First element (head)
+ * @line_number: is the line number where the instruction appears
+ */
+void _rotl(stack_t **stack, unsigned int line_number)
+{
+	int tmp;
+
+	if (*stack != NULL)
+	{
+		tmp = (*stack)->n;
+		add_dnodeint_end(&*stack, tmp);
+		_pop(stack, line_number);
+	}
+
+}
