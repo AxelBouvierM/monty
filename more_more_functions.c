@@ -98,17 +98,16 @@ void _rotr(stack_t **stack, unsigned int line_number)
 	stack_t *aux = *stack, *tmp;
 	(void)line_number;
 
-	if (*stack != NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+	while (aux->next)
 	{
-		while (aux->next)
-		{
-			aux = aux->next;
-		}
-		tmp = aux->prev;
-		aux->next = *stack;
-		aux->prev = NULL;
-		tmp->next = NULL;
-		(*stack)->prev = aux;
-		*stack = aux;
+		aux = aux->next;
 	}
+	tmp = aux->prev;
+	aux->next = *stack;
+	aux->prev = NULL;
+	tmp->next = NULL;
+	(*stack)->prev = aux;
+	*stack = aux;
 }
