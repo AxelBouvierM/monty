@@ -34,3 +34,34 @@ int is_digit(char *str)
 	}
 	return (0);
 }
+
+stack_t *add_dnodeint_end(stack_t **stack, int n)
+{
+	struct stack_s *new_node = malloc(sizeof(stack_t));
+	stack_t *tmp = *stack;
+
+	if (new_node == NULL)
+	{
+		return (NULL);
+	}
+
+	new_node->n = n;
+	new_node->next = NULL;
+
+	if (*stack == NULL)
+	{
+		new_node->prev = NULL;
+		*stack = new_node;
+	}
+	else
+	{
+		while (tmp->next != NULL)
+		{
+			tmp = tmp->next;
+		}
+		tmp->next = new_node;
+		new_node->prev = tmp;
+
+	}
+	return (new_node);
+}
