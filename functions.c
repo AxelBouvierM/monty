@@ -23,7 +23,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	str = strtok(NULL, "\t\n ");
 	if (str == NULL || is_digit(str) == -1)
 	{
-		fprintf(stderr, "L%d: unknown instruction push\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free(tmp);
 		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
